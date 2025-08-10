@@ -1,5 +1,5 @@
 "use client";
-import { Empty, Input } from "antd";
+import { Input } from "antd";
 
 export default function Home() {
   return (

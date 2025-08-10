@@ -1,10 +1,9 @@
 "use client";
-import { useQueryState } from "@/hooks";
 import { CalendarFilled, DashboardOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 
 const { Footer, Sider } = Layout;
 
@@ -25,10 +24,7 @@ function getItem(
 }
 
 export const Sidebar: React.FC<PropsWithChildren> = (props) => {
-  const [collapsed, setCollapsed] = useQueryState<boolean>({
-    key: "is-menu-collapsed",
-    defaultValue: false,
-  });
+  const [collapsed, setCollapsed] = useState<boolean>(false);
   const pathname = usePathname();
 
   const routeToKeyMap: { [key: string]: string } = {

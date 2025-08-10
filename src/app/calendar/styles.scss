@@ -1,8 +1,8 @@
-:global(.fc) {
+.fc {
   font-family: "Inter", sans-serif;
 }
 
-:global(.fc .fc-toolbar) {
+.fc .fc-toolbar {
   background-color: #f3f4f6;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -13,13 +13,13 @@
   }
 }
 
-:global(.fc .fc-toolbar-title) {
+.fc .fc-toolbar-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1f2937;
 }
 
-:global(.fc .fc-button) {
+.fc .fc-button {
   background-color: #10b981;
   border: none;
   color: white;
@@ -28,40 +28,40 @@
   transition: background-color 0.2s ease;
 }
 
-:global(.fc .fc-button:focus) {
+.fc .fc-button:focus {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
   outline: none;
 }
 
-:global(.fc .fc-daygrid-day) {
+.fc .fc-daygrid-day {
   background-color: #ffffff;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
 }
 
-:global(.fc .fc-daygrid-day-top) {
+.fc .fc-daygrid-day-top {
   padding: 0.7rem;
 }
 
-:global(.fc .fc-daygrid-day-number) {
+.fc .fc-daygrid-day-number {
   color: #374151;
   font-weight: 500;
 }
 
-:global(.fc .fc-day-today) {
+.fc .fc-day-today {
   background-color: #e6fffa !important;
 }
 
-:global(.fc .fc-day-today .fc-daygrid-day-number) {
+.fc .fc-day-today .fc-daygrid-day-number {
   color: #10b981;
   font-weight: 600;
 }
 
-:global(.fc .fc-col-header-cell-cushion) {
+.fc .fc-col-header-cell-cushion {
   color: black;
 }
 
-:global(.fc .fc-event) {
+.fc .fc-event {
   border-radius: 0.5rem;
   padding: 0.5rem 0.5rem;
   font-size: 1rem;
@@ -70,6 +70,6 @@
   transition: transform 0.2s ease;
 }
 
-:global(.fc .fc-event:hover) {
+.fc .fc-event:hover {
   transform: translateY(-2px);
 }

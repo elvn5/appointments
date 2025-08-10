@@ -1,17 +1,16 @@
 "use client";
+import { useMemo, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import ruLocale from "@fullcalendar/core/locales/ru";
-import styles from "./styles.module.scss";
+import { PopoverContent } from "@/components/PopoverContent";
 import { Avatar, Popover, Select, Typography } from "antd";
 import "dayjs/locale/ru";
 import dayjs from "dayjs";
-import { PopoverContent } from "@/components/PopoverContent";
-import { useQueryState } from "@/hooks";
-import "dayjs/locale/ru";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import appointments from "@/mocks/appointments.json";
-import { useMemo } from "react";
+
+import "./styles.scss";
 
 dayjs.extend(customParseFormat);
 dayjs.locale("ru");
@@ -29,10 +28,7 @@ const mappedDoctors = appointments.map((app) => ({
 }));
 
 export default function CalendarPage() {
-  const [doctor, setDoctor] = useQueryState({
-    key: "doctor",
-    defaultValue: mappedDoctors[0].value,
-  });
+  const [doctor, setDoctor] = useState(mappedDoctors[0].value);
 
   const schedule = useMemo(() => {
     const currentSchedule = appointments.filter(
@@ -56,9 +52,7 @@ export default function CalendarPage() {
 
   return (
     <div className="mx-auto bg-white min-h-screen">
-      <div
-        className={` bg-white rounded-xl shadow-lg p-6 ${styles.calendarContainer}`}
-      >
+      <div className={` bg-white rounded-xl shadow-lg p-6`}>
         <Select
           style={{ width: "100%", minHeight: 50 }}
           value={doctor}
@@ -89,9 +83,6 @@ export default function CalendarPage() {
           eventTextColor="#ffffff"
           height="auto"
           eventContent={(eventInfo) => {
-            const formattedStart = dayjs(eventInfo.event.start).format(
-              "ddd, D MMMM HH:mm"
-            );
             const popoverContent = (
               <PopoverContent
                 title={eventInfo.event.title}
@@ -104,7 +95,7 @@ export default function CalendarPage() {
             );
             return (
               <Popover content={popoverContent} trigger="hover" placement="top">
-                <div className={styles.eventContent}>
+                <div>
                   <p>
                     {dayjs(eventInfo.event.start).format("HH:mm")}-
                     {dayjs(eventInfo.event.end).format("HH:mm")}
